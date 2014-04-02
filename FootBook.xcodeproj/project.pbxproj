@@ -25,6 +25,7 @@
 		56768E7A18EC8EC200260038 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56768E5518EC8EC200260038 /* CoreData.framework */; };
 		56768E8218EC8EC200260038 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56768E8018EC8EC200260038 /* InfoPlist.strings */; };
 		56768E8418EC8EC200260038 /* FootBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56768E8318EC8EC200260038 /* FootBookTests.m */; };
+		56768E8F18EC9A1D00260038 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56768E8E18EC9A1D00260038 /* Profile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		56768E7F18EC8EC200260038 /* FootBookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FootBookTests-Info.plist"; sourceTree = "<group>"; };
 		56768E8118EC8EC200260038 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56768E8318EC8EC200260038 /* FootBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootBookTests.m; sourceTree = "<group>"; };
+		56768E8D18EC9A1D00260038 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		56768E8E18EC9A1D00260038 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				56768E6D18EC8EC200260038 /* DetailViewController.m */,
 				56768E6F18EC8EC200260038 /* Images.xcassets */,
 				56768E6618EC8EC200260038 /* FootBook.xcdatamodeld */,
+				56768E8D18EC9A1D00260038 /* Profile.h */,
+				56768E8E18EC9A1D00260038 /* Profile.m */,
 				56768E5818EC8EC200260038 /* Supporting Files */,
 			);
 			path = FootBook;
@@ -266,6 +271,7 @@
 				56768E6E18EC8EC200260038 /* DetailViewController.m in Sources */,
 				56768E6B18EC8EC200260038 /* MasterViewController.m in Sources */,
 				56768E6818EC8EC200260038 /* FootBook.xcdatamodeld in Sources */,
+				56768E8F18EC9A1D00260038 /* Profile.m in Sources */,
 				56768E6218EC8EC200260038 /* AppDelegate.m in Sources */,
 				56768E5E18EC8EC200260038 /* main.m in Sources */,
 			);
