@@ -11,6 +11,9 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) IBOutlet UISwitch *friendSwitch;
+
+@property BOOL friended;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

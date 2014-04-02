@@ -19,13 +19,13 @@
     
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
     }
 }
 
 - (void)viewDidLoad{
     
     [super viewDidLoad];
+    self.friendSwitch.on = self.friended;
 }
 
 

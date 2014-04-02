@@ -13,6 +13,7 @@
 @interface MasterViewController ()
 {
     BOOL firstStartUp;
+    BOOL lookAtFriends;
 }
 @property NSArray* profilesArray;
 @end
@@ -23,17 +24,43 @@
 - (void)viewDidLoad{
     
     [super viewDidLoad];
+    lookAtFriends = YES;
+    self.navigationItem.title = @"Friends";
+    self.fetchedResultsController.delegate = self;
+    firstStartUp = ![[NSUserDefaults standardUserDefaults] boolForKey:@"hasRunOnce"];
+    if (firstStartUp) {
+        [self firstRun];
+    }
     NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Profile"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"mobileMakers"];
-    
-    self.fetchedResultsController.delegate = self;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"friended == %@", [NSNumber numberWithBool:lookAtFriends]];
+    [request setPredicate:predicate];
     [self.fetchedResultsController performFetch:nil];
-    firstStartUp = ![[NSUserDefaults standardUserDefaults] boolForKey:@"hasRunOnce"];
-    if (firstStartUp) {
-    [self firstRun];
+    [self.tableView reloadData];
+    //[self filter:lookAtFriends];
+}
+
+- (void) filter:(BOOL)parameterName {
+    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Profile"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"mobileMakers"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"friended == %@", [NSNumber numberWithBool:lookAtFriends]];
+    [request setPredicate:predicate];
+    [self.fetchedResultsController performFetch:nil];
+    [self.tableView reloadData];
+}
+- (IBAction)addFriends:(id)sender {
+    lookAtFriends =! lookAtFriends;
+    if (!lookAtFriends) {
+        self.title = @"Profiles";
     }
+    else{
+        self.title = @"Friends";
+    }
+    [self filter:lookAtFriends];
 }
 
 - (void) firstRun{
@@ -78,6 +105,7 @@
     Profile* profile = [self.fetchedResultsController objectAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = profile.name;
+    cell.detailTextLabel.text = profile.friended.description;
     
     return cell;
 }
@@ -99,6 +127,9 @@
     if (type == NSFetchedResultsChangeInsert) {
         [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    else if(type == NSFetchedResultsChangeUpdate){
+        [self.tableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 
 }
 
@@ -111,8 +142,31 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    
+    DetailViewController* vc = segue.destinationViewController;
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
+    Profile* selectedProfile = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    vc.detailItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    vc.title = [[self.fetchedResultsController objectAtIndexPath:indexPath] name];
+    vc.friended = [selectedProfile.friended boolValue];
 }
+
+-(IBAction)commitChanges:(UIStoryboardSegue*)sender{
+    
+    DetailViewController* vc = sender.sourceViewController;
+    Profile*profile = vc.detailItem;
+    profile.friended = [NSNumber numberWithBool:vc.friendSwitch.on];
+    [self.managedObjectContext save:nil];
+    lookAtFriends = YES;
+    [self filter:lookAtFriends];
+}
+
+
+
+
+
+
+
+
 
 
 @end
