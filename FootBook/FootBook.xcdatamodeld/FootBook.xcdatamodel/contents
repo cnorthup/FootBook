@@ -5,9 +5,10 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfFeet" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="numberOfToes" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="photos" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="shoeSize" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Profile" positionX="-45" positionY="0" width="128" height="120"/>
+        <element name="Profile" positionX="-45" positionY="0" width="128" height="135"/>
     </elements>
 </model>

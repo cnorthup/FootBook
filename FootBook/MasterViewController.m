@@ -73,7 +73,7 @@
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         self.profilesArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-        NSLog(@"%@", self.profilesArray);
+        //NSLog(@"%@", self.profilesArray);
         for (NSString*profileName in self.profilesArray) {
             Profile* profile = [NSEntityDescription insertNewObjectForEntityForName:@"Profile" inManagedObjectContext:self.managedObjectContext];
             profile.name = profileName;
@@ -157,6 +157,7 @@
     profile.friended = [NSNumber numberWithBool:vc.friendSwitch.on];
     [self.managedObjectContext save:nil];
     lookAtFriends = YES;
+    self.title = @"Friends";
     [self filter:lookAtFriends];
 }
 

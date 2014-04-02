@@ -11,10 +11,11 @@
 
 @implementation Profile
 
-@dynamic name;
 @dynamic friended;
+@dynamic name;
 @dynamic numberOfFeet;
-@dynamic shoeSize;
 @dynamic numberOfToes;
+@dynamic shoeSize;
+@dynamic photos;
 
 @end

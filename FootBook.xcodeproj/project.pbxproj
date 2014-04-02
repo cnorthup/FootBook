@@ -25,7 +25,9 @@
 		56768E7A18EC8EC200260038 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56768E5518EC8EC200260038 /* CoreData.framework */; };
 		56768E8218EC8EC200260038 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56768E8018EC8EC200260038 /* InfoPlist.strings */; };
 		56768E8418EC8EC200260038 /* FootBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56768E8318EC8EC200260038 /* FootBookTests.m */; };
-		56768E8F18EC9A1D00260038 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56768E8E18EC9A1D00260038 /* Profile.m */; };
+		56D41AE118ECCD540002A51A /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D41AE018ECCD540002A51A /* Profile.m */; };
+		56D41AE418ECD3D10002A51A /* FoundFeetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D41AE318ECD3D10002A51A /* FoundFeetViewController.m */; };
+		56D41AE718ECD7DA0002A51A /* CellWithImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D41AE618ECD7DA0002A51A /* CellWithImageCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +64,12 @@
 		56768E7F18EC8EC200260038 /* FootBookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FootBookTests-Info.plist"; sourceTree = "<group>"; };
 		56768E8118EC8EC200260038 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56768E8318EC8EC200260038 /* FootBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootBookTests.m; sourceTree = "<group>"; };
-		56768E8D18EC9A1D00260038 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
-		56768E8E18EC9A1D00260038 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		56D41ADF18ECCD540002A51A /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		56D41AE018ECCD540002A51A /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		56D41AE218ECD3D10002A51A /* FoundFeetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundFeetViewController.h; sourceTree = "<group>"; };
+		56D41AE318ECD3D10002A51A /* FoundFeetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundFeetViewController.m; sourceTree = "<group>"; };
+		56D41AE518ECD7DA0002A51A /* CellWithImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithImageCollectionViewCell.h; sourceTree = "<group>"; };
+		56D41AE618ECD7DA0002A51A /* CellWithImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithImageCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +141,13 @@
 				56768E6D18EC8EC200260038 /* DetailViewController.m */,
 				56768E6F18EC8EC200260038 /* Images.xcassets */,
 				56768E6618EC8EC200260038 /* FootBook.xcdatamodeld */,
-				56768E8D18EC9A1D00260038 /* Profile.h */,
-				56768E8E18EC9A1D00260038 /* Profile.m */,
+				56D41ADF18ECCD540002A51A /* Profile.h */,
+				56D41AE018ECCD540002A51A /* Profile.m */,
 				56768E5818EC8EC200260038 /* Supporting Files */,
+				56D41AE218ECD3D10002A51A /* FoundFeetViewController.h */,
+				56D41AE318ECD3D10002A51A /* FoundFeetViewController.m */,
+				56D41AE518ECD7DA0002A51A /* CellWithImageCollectionViewCell.h */,
+				56D41AE618ECD7DA0002A51A /* CellWithImageCollectionViewCell.m */,
 			);
 			path = FootBook;
 			sourceTree = "<group>";
@@ -270,9 +280,11 @@
 			files = (
 				56768E6E18EC8EC200260038 /* DetailViewController.m in Sources */,
 				56768E6B18EC8EC200260038 /* MasterViewController.m in Sources */,
+				56D41AE418ECD3D10002A51A /* FoundFeetViewController.m in Sources */,
 				56768E6818EC8EC200260038 /* FootBook.xcdatamodeld in Sources */,
-				56768E8F18EC9A1D00260038 /* Profile.m in Sources */,
+				56D41AE118ECCD540002A51A /* Profile.m in Sources */,
 				56768E6218EC8EC200260038 /* AppDelegate.m in Sources */,
+				56D41AE718ECD7DA0002A51A /* CellWithImageCollectionViewCell.m in Sources */,
 				56768E5E18EC8EC200260038 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +490,7 @@
 				56768E8918EC8EC200260038 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56768E8A18EC8EC200260038 /* Build configuration list for PBXNativeTarget "FootBookTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +499,7 @@
 				56768E8C18EC8EC200260038 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

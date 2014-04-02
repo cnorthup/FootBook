@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485" y="-586"/>
+            <point key="canvasLocation" x="469" y="-874"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -74,7 +74,102 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="-586"/>
+            <point key="canvasLocation" x="926" y="-874"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3kg-ZC-3RN">
+            <objects>
+                <viewController id="NRe-c1-tKh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pru-my-hX3"/>
+                        <viewControllerLayoutGuide type="bottom" id="rRS-vR-CFM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xPd-Yo-Vr5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLB-Uy-R0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="-1493"/>
+        </scene>
+        <!--Found Feet View Controller - Search-->
+        <scene sceneID="caW-uG-Etz">
+            <objects>
+                <viewController title="Search" id="tDS-bM-3ze" customClass="FoundFeetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xRk-6x-4dp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sbs-N7-OZR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p64-Mn-iVD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FfZ-p1-quC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sJ9-fU-LX7">
+                                    <size key="itemSize" width="203" height="179"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoReuseCellID" id="P3x-ql-ZwE" customClass="CellWithImageCollectionViewCell">
+                                        <rect key="frame" x="59" y="64" width="203" height="179"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="203" height="179"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-Er-Za1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="203" height="179"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="image" destination="wEw-Er-Za1" id="wzV-Su-It5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="tDS-bM-3ze" id="vqE-QY-WVv"/>
+                                    <outlet property="delegate" destination="tDS-bM-3ze" id="s8t-Yc-rhb"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Feet Found" id="Lcw-V1-fbe"/>
+                    <connections>
+                        <outlet property="myCollectionView" destination="FfZ-p1-quC" id="FFi-hg-vyy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5C-5c-aYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="-391"/>
+        </scene>
+        <!--View Controller - Favorites-->
+        <scene sceneID="ZeN-iX-cRN">
+            <objects>
+                <viewController title="Favorites" id="ds5-Vj-2pA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tsa-aw-bNZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="UY8-Bv-uUV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fyt-d1-fSI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photos" id="2MA-1U-eTR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBk-zA-zTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="-1237"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="Cn3-H9-jdl">
@@ -124,6 +219,28 @@
                                     <segue destination="qnI-hu-0nF" kind="unwind" unwindAction="commitChanges:" id="Jvh-dU-B4R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70P-k5-f22">
+                                <rect key="frame" x="20" y="390" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Post Photos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tDS-bM-3ze" kind="push" id="N61-TS-ayV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Af-ko-4c4">
+                                <rect key="frame" x="20" y="428" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Photos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ds5-Vj-2pA" kind="push" id="Okt-K9-XPX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -136,7 +253,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
                 <exit id="qnI-hu-0nF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="-586"/>
+            <point key="canvasLocation" x="1372" y="-874"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cUE-gp-Ih1">
+            <objects>
+                <viewController id="Qnm-Ma-i7R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JnG-DX-aaq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kwa-jq-NoQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mO7-HE-s1y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3X3-fv-3aU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="88"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.50217481019999999" blue="0.0020682545409999998" alpha="1" colorSpace="calibratedRGB"/>
