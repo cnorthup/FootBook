@@ -10,5 +10,7 @@
 
 @interface CellWithImageCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIButton *addButtonPressed;
+@property NSString* photoID;
 
 @end

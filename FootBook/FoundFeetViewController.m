@@ -14,7 +14,10 @@
     NSMutableArray* photosArray;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
-
+@property (strong, nonatomic) NSIndexPath* indexPathForSelectedCell;
+@property NSMutableArray* photosToPost;
+@property NSMutableArray* searchedPhotoIDs;
+@property NSMutableArray* postedPhotoIDs;
 @end
 
 @implementation FoundFeetViewController
@@ -23,13 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // myCollectionView.delegate = self;
-   // myCollectionView.dataSource = self;
-    //parsedUrls = [NSMutableArray new];
-   // arrayOfPhotoData = [NSMutableArray new];
-   // arrayOfAnimalPhotos = [NSMutableArray new];
-   // sortedPhotos = [NSMutableArray new];
-   // rows = arrayOfAnimalPhotos.count;
+    self.photosToPost = [NSMutableArray new];
+    self.postedPhotoIDs = [NSMutableArray new];
+    self.searchedPhotoIDs = [NSMutableArray new];
     photosArray = [NSMutableArray new];
     NSLog(@"hit");
     NSURL* url = [NSURL URLWithString:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3b9f5d531b74e0c59b9393be78a30157&tags=feet&safe_search=1&per_page=100&place_id&has_geo&extras=+geo&format=json&nojsoncallback=1"];
@@ -53,6 +52,7 @@
         for (NSDictionary*photoInfo in photos) {
             NSURL* photoUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://farm%@.static.flickr.com/%@/%@_%@_m.jpg", photoInfo[@"farm"], photoInfo[@"server"], photoInfo[@"id"], photoInfo[@"secret"]]];
             [parsedUrls addObject:photoUrl];
+            [self.searchedPhotoIDs addObject:photoInfo[@"id"]];
         }
         NSLog(@"%lu", (unsigned long)parsedUrls.count);
         for (NSURL*currentUrl in parsedUrls) {
@@ -75,9 +75,35 @@
     }];
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    CellWithImageCollectionViewCell *cell = (CellWithImageCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.addButtonPressed.enabled = YES;
+    self.indexPathForSelectedCell = indexPath;
+    
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CellWithImageCollectionViewCell *cell = (CellWithImageCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.addButtonPressed.enabled = NO;
+}
+
+-(IBAction)addButtonPressedForFavorite:(id)sender{
+    CellWithImageCollectionViewCell* cell = (CellWithImageCollectionViewCell*)[self.myCollectionView cellForItemAtIndexPath:self.indexPathForSelectedCell];
+    [self.photosToPost addObject:cell.image.image];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CellWithImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoReuseCellID" forIndexPath:indexPath];
     cell.image.image = [photosArray objectAtIndex:indexPath.row];
+    cell.addButtonPressed.enabled = NO;
+    cell.photoID = self.searchedPhotoIDs[indexPath.row];
+    if ([self.postedPhotoIDs containsObject:cell.photoID]) {
+        cell.addButtonPressed.hidden = YES;
+    }
+    else{
+        cell.addButtonPressed.hidden = NO;
+    }
     NSLog(@"cell");
     return cell;
 }
